@@ -2,7 +2,7 @@ name: CI-CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
 
 jobs:
@@ -12,20 +12,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
-      # -------- FRONTEND --------
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20   # FIXED (required for Vite)
-
-      - name: Install Frontend Dependencies
-        working-directory: ./frontend
-        run: npm install
-
-      - name: Build Frontend
-        working-directory: ./frontend
-        run: npm run build
 
       # -------- BACKEND --------
       - name: Setup JDK
